@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
+		<title>ENERCON · Software para hidrocarburos y pagos sin fricción</title>
+		<meta
+			name="description"
+			content="Plataformas para estaciones de servicio: control volumétrico, administración, pagos móviles y lealtad. Cumplimiento SAT y dashboards en la nube."
+		/>
+		<meta name="theme-color" content="#0f172a" />
+		<meta
+			property="og:title"
+			content="ENERCON · Software para estaciones de servicio"
+		/>
+		<meta
+			property="og:description"
+			content="Control volumétrico, administración centralizada y pagos móviles."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_MX" />
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+		<style>
+			:root {
+				--bg: #0b1020; /* fondo oscuro elegante */
+				--card: #11162a; /* tarjetas */
+				--muted: #8aa4ff; /* acento */
+				--text: #e6e9f2; /* texto */
+				--text-dim: #b9c1d9; /* texto secundario */
+				--ok: #34d399; /* verde */
+				--warn: #f59e0b; /* ámbar */
+				--danger: #ef4444; /* rojo */
+				--radius: 18px;
+				--shadow: 0 10px 30px rgba(2, 6, 23, 0.35),
+					0 2px 8px rgba(2, 6, 23, 0.25);
+			}
+			* {
+				box-sizing: border-box;
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				margin: 0;
+				font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+					Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+					"Segoe UI Emoji";
+				color: var(--text);
+				background: radial-gradient(
+						1200px 600px at 80% -10%,
+						#1a2150 0%,
+						rgba(26, 33, 80, 0) 55%
+					),
+					radial-gradient(
+						800px 400px at -10% 0%,
+						#0a7bd1 0%,
+						rgba(10, 123, 209, 0) 55%
+					),
+					var(--bg);
+				line-height: 1.45;
+			}
+			a {
+				color: inherit;
+			}
+			.container {
+				max-width: 1200px;
+				margin-inline: auto;
+				padding: clamp(16px, 2vw, 28px);
+			}
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6rem;
+				border: 1px solid transparent;
+				border-radius: 999px;
+				padding: 0.9rem 1.15rem;
+				font-weight: 600;
+				text-decoration: none;
+				background: #1b2754;
+				color: var(--text);
+				box-shadow: var(--shadow);
+			}
+			.btn:hover {
+				transform: translateY(-1px);
+			}
+			.btn.primary {
+				background: linear-gradient(135deg, #3352ff, #6aa3ff);
+				color: white;
+			}
+			.btn.ghost {
+				background: transparent;
+				border-color: #2c3a6b;
+			}
+			header {
+				position: sticky;
+				top: 0;
+				z-index: 50;
+				backdrop-filter: saturate(150%) blur(10px);
+				background: rgba(11, 16, 32, 0.5);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+			}
+			.nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 0.6rem;
+				font-weight: 800;
+			}
+			.logo-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: var(--muted);
+				box-shadow: 0 0 20px #6aa3ff;
+			}
+			.menu {
+				display: flex;
+				gap: 1rem;
+				align-items: center;
+			}
+			.menu a {
+				opacity: 0.9;
+				text-decoration: none;
+				padding: 0.75rem 0.9rem;
+				border-radius: 999px;
+			}
+			.menu a:hover {
+				background: rgba(255, 255, 255, 0.06);
+			}
+			.mobile-toggle {
+				display: none;
+			}
+
+			/* HERO */
+			.hero {
+				display: grid;
+				grid-template-columns: 1.1fr 0.9fr;
+				gap: clamp(24px, 4vw, 48px);
+				align-items: center;
+				padding-block: clamp(40px, 10vh, 120px);
+			}
+			h1 {
+				font-size: clamp(32px, 5.2vw, 54px);
+				line-height: 1.05;
+				margin: 0 0 12px;
+			}
+			.lead {
+				font-size: clamp(16px, 2.2vw, 20px);
+				color: var(--text-dim);
+				max-width: 60ch;
+			}
+			.hero-card {
+				background: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0.04),
+					rgba(255, 255, 255, 0.02)
+				);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: var(--radius);
+				padding: clamp(16px, 2.5vw, 24px);
+				box-shadow: var(--shadow);
+			}
+			.stats {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 14px;
+				margin-top: 16px;
+			}
+			.stat {
+				background: rgba(255, 255, 255, 0.04);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 16px;
+				padding: 14px;
+			}
+			.stat b {
+				font-size: clamp(22px, 3.2vw, 30px);
+			}
+
+			/* SECTIONS */
+			section {
+				padding-block: clamp(48px, 11vh, 120px);
+			}
+			h2 {
+				font-size: clamp(26px, 3.8vw, 36px);
+				margin: 0 0 10px;
+			}
+			p.section-lead {
+				color: var(--text-dim);
+				max-width: 75ch;
+			}
+
+			.grid {
+				display: grid;
+				gap: clamp(16px, 2vw, 24px);
+			}
+			.grid.cards {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+			.card {
+				background: var(--card);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: var(--radius);
+				padding: clamp(18px, 2.5vw, 24px);
+				box-shadow: var(--shadow);
+			}
+			.card h3 {
+				margin: 0 0 6px;
+			}
+			.eyebrow {
+				font-size: 0.8rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #9fb4ff;
+			}
+			.badge {
+				display: inline-block;
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 999px;
+				padding: 0.25rem 0.6rem;
+				font-size: 0.8rem;
+				opacity: 0.9;
+			}
+			ul.check {
+				list-style: none;
+				padding: 0;
+				margin: 10px 0 0;
+			}
+			ul.check li {
+				padding-left: 28px;
+				position: relative;
+				margin: 8px 0;
+				color: var(--text-dim);
+			}
+			ul.check li::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.15rem;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background: radial-gradient(circle at 35% 35%, #7ee3b5, #30b38f);
+				box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+			}
+
+			.cta {
+				display: flex;
+				gap: 12px;
+				flex-wrap: wrap;
+				margin-top: 18px;
+			}
+
+			/* RESPONSIVE */
+			@media (max-width: 900px) {
+				.hero {
+					grid-template-columns: 1fr;
+				}
+				.grid.cards {
+					grid-template-columns: 1fr;
+				}
+				.menu {
+					display: none;
+				}
+				.mobile-toggle {
+					display: inline-flex;
+				}
+			}
+
+			/* Accessibility: reduce motion */
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					animation: none !important;
+					transition: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container nav" aria-label="Barra de navegación">
+				<a href="#" class="logo" aria-label="Inicio ENERCON">
+					<!-- <span class="logo-dot" aria-hidden="true"></span> -->
+					<!-- ENERCON -->
+					<img
+						src="https://www.enercon.mx/galeria/Enercon-LOGO-BLANCO.png"
+						alt="Logo ENERCON"
+						width="32"
+						height="32"
+					/>
+				</a>
+
+				<nav class="menu" aria-label="Secciones">
+					<a href="#productos">Productos</a>
+					<a href="#cumplimiento">Cumplimiento SAT</a>
+					<a href="#clientes">Clientes</a>
+					<a href="#contacto">Contacto</a>
+				</nav>
+				<button
+					class="mobile-toggle btn ghost"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+				>
+					Menú
+				</button>
+			</div>
+		</header>
+
+		<main>
+			<section class="container hero" id="home">
+				<div>
+					<p class="eyebrow">Software para el sector hidrocarburos</p>
+					<h1>
+						Control volumétrico, pagos móviles y administración
+						<span style="color: #9fb4ff">unificados</span>.
+					</h1>
+					<p class="lead">
+						Operación en tiempo real desde la nube, cumplimiento regulatorio y
+						experiencias de pago sin fricción, listos para escalar tu red de
+						estaciones.
+					</p>
+					<div class="cta">
+						<a class="btn primary" href="#contacto">Solicitar demo</a>
+						<a
+							class="btn"
+							href="https://api.whatsapp.com/send?phone=524441689014&text=Hola%20ENERCON%2C%20quiero%20una%20demo"
+							target="_blank"
+							rel="noopener"
+							>WhatsApp</a
+						>
+					</div>
+					<div class="stats" role="list" aria-label="Indicadores">
+						<div class="stat" role="listitem">
+							<div class="badge">Disponibilidad</div>
+							<b id="uptime">99.9%</b>
+							<div class="tiny">Tiempo de actividad</div>
+						</div>
+						<div class="stat" role="listitem">
+							<div class="badge">Integraciones</div>
+							<b id="integraciones">+20</b>
+							<div class="tiny">Dispensarios, bancos, SAT</div>
+						</div>
+						<div class="stat" role="listitem">
+							<div class="badge">Clientes</div>
+							<b id="clientes">+300</b>
+							<div class="tiny">E.S. y corporativos</div>
+						</div>
+					</div>
+				</div>
+				<aside class="hero-card">
+					<h3>Suite ENERCON</h3>
+					<ul class="check">
+						<li>FuelSoft — control volumétrico, TPV y backoffice</li>
+						<li>Enerpay — pagos y facturación desde app</li>
+						<li>Enerview — administración de terminales/encuestas</li>
+						<li>Soporte — centro de tickets 24/7</li>
+					</ul>
+					<div class="cta" style="margin-top: 14px">
+						<a class="btn ghost" href="#productos">Ver suite</a>
+						<a
+							class="btn"
+							href="https://play.google.com/store/apps/details?id=com.enercon"
+							target="_blank"
+							rel="noopener"
+							>Google Play</a
+						>
+					</div>
+				</aside>
+			</section>
+
+			<section id="productos">
+				<div class="container">
+					<h2>Nuestros productos</h2>
+					<p class="section-lead">
+						Plataformas modulares que conectan piso de venta, backoffice y nube
+						para darte control absoluto de tu operación.
+					</p>
+					<div class="grid cards" role="list">
+						<article class="card" role="listitem">
+							<h3>FuelSoft</h3>
+							<p>
+								Sistema integral para estaciones de servicio: control
+								volumétrico (Anexo 30), TPV, facturación y administración
+								centralizada.
+							</p>
+							<div class="cta">
+								<a
+									class="btn"
+									href="https://fuelsoft.mx"
+									target="_blank"
+									rel="noopener"
+									>Conocer FuelSoft</a
+								>
+							</div>
+						</article>
+						<article class="card" role="listitem">
+							<h3>Enerpay</h3>
+							<p>
+								Pagos y facturación instantánea desde el móvil. Integra
+								monedero, tarjetas y dispersión de saldo para flotillas.
+							</p>
+							<div class="cta">
+								<a
+									class="btn"
+									href="https://enerpay.enercon.mx"
+									target="_blank"
+									rel="noopener"
+									>Ir a Enerpay</a
+								>
+							</div>
+						</article>
+						<article class="card" role="listitem">
+							<h3>Enerview</h3>
+							<p>
+								Administrador de terminales punto de venta con encuestas y
+								promociones para impulsar la fidelización en sitio.
+							</p>
+							<div class="cta">
+								<a
+									class="btn"
+									href="https://enerview.enercon.mx"
+									target="_blank"
+									rel="noopener"
+									>Explorar Enerview</a
+								>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="cumplimiento">
+				<div class="container">
+					<h2>Cumplimiento SAT — Controles volumétricos</h2>
+					<p class="section-lead">
+						Arquitectura preparada para los requisitos del Anexo 30: registro
+						detallado por producto, bitácoras diarias, conciliación mensual,
+						transmisión de archivos y validación técnica anual.
+					</p>
+					<div class="grid cards">
+						<article class="card">
+							<h3>Auditoría automática</h3>
+							<p>
+								Validaciones sobre integridad de lecturas, medidores y CFDI;
+								alertas proactivas y evidencia de envíos.
+							</p>
+						</article>
+						<article class="card">
+							<h3>Seguridad y trazabilidad</h3>
+							<p>
+								Histórico inmutable, sellos de tiempo y controles de acceso por
+								rol con bitácoras de eventos.
+							</p>
+						</article>
+						<article class="card">
+							<h3>Conectividad</h3>
+							<p>
+								Interfaces con dispensarios, sensores de tanque y servicios SAT;
+								APIs abiertas para terceros.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="clientes">
+				<div class="container">
+					<h2>Implementaciones</h2>
+					<p class="section-lead">
+						Casos reales con operación 24/7, actualización en tiempo real y
+						administración centralizada.
+					</p>
+					<div class="grid cards">
+						<article class="card">
+							<span class="badge">Red de estaciones</span>
+							<h3>Operación multi-sitio</h3>
+							<p>
+								Control centralizado de ventas, inventarios y cuentas por
+								cobrar, con listas compartidas para redes de E.S.
+							</p>
+						</article>
+						<article class="card">
+							<span class="badge">Flotillas</span>
+							<h3>Control de consumo</h3>
+							<p>
+								Autorizaciones por vehículo, límites y conciliación de cargas
+								por periodo, sucursal y operador.
+							</p>
+						</article>
+						<article class="card">
+							<span class="badge">Pago sin fricción</span>
+							<h3>Checkout móvil</h3>
+							<p>
+								Pago y facturación en app: menos filas, mayor rotación de isla y
+								más satisfacción del cliente.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="contacto">
+				<div class="container">
+					<h2>Hablemos</h2>
+					<p class="section-lead">
+						Agenda una demo o escríbenos por WhatsApp para conocer tu operación
+						y armar un plan a medida.
+					</p>
+					<form
+						id="lead"
+						class="grid"
+						style="grid-template-columns: 1fr 1fr; gap: 16px"
+						onsubmit="event.preventDefault(); demoToast();"
+					>
+						<input
+							aria-label="Nombre"
+							required
+							placeholder="Nombre"
+							style="
+								padding: 14px;
+								border-radius: 12px;
+								border: 1px solid rgba(255, 255, 255, 0.15);
+								background: rgba(255, 255, 255, 0.04);
+								color: var(--text);
+							"
+						/>
+						<input
+							aria-label="Email"
+							type="email"
+							required
+							placeholder="Email"
+							style="
+								padding: 14px;
+								border-radius: 12px;
+								border: 1px solid rgba(255, 255, 255, 0.15);
+								background: rgba(255, 255, 255, 0.04);
+								color: var(--text);
+							"
+						/>
+						<input
+							aria-label="Teléfono"
+							required
+							placeholder="Teléfono"
+							style="
+								padding: 14px;
+								border-radius: 12px;
+								border: 1px solid rgba(255, 255, 255, 0.15);
+								background: rgba(255, 255, 255, 0.04);
+								color: var(--text);
+							"
+						/>
+						<select
+							aria-label="Interés"
+							required
+							style="
+								padding: 14px;
+								border-radius: 12px;
+								border: 1px solid rgba(255, 255, 255, 0.15);
+								background: rgba(255, 255, 255, 0.04);
+								color: var(--text);
+							"
+						>
+							<option value="" disabled selected>Me interesa…</option>
+							<option>FuelSoft</option>
+							<option>Enerpay</option>
+							<option>Enerview</option>
+							<option>Otro</option>
+						</select>
+						<textarea
+							aria-label="Mensaje"
+							required
+							placeholder="Cuéntanos tu caso…"
+							rows="4"
+							style="
+								grid-column: 1/-1;
+								padding: 14px;
+								border-radius: 12px;
+								border: 1px solid rgba(255, 255, 255, 0.15);
+								background: rgba(255, 255, 255, 0.04);
+								color: var(--text);
+							"
+						></textarea>
+						<div class="cta" style="grid-column: 1/-1">
+							<button class="btn primary" type="submit">Solicitar demo</button>
+							<a
+								class="btn"
+								target="_blank"
+								rel="noopener"
+								href="https://api.whatsapp.com/send?phone=524441689014&text=Hola%20ENERCON%2C%20quiero%20una%20demo"
+								>Escribir por WhatsApp</a
+							>
+						</div>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div
+				class="container"
+				style="
+					padding-block: 30px;
+					display: flex;
+					gap: 14px;
+					justify-content: space-between;
+					align-items: center;
+					flex-wrap: wrap;
+				"
+			>
+				<small style="opacity: 0.8"
+					>© <span id="year"></span> ENERCON · San Luis Potosí · México</small
+				>
+				<div style="display: flex; gap: 8px; flex-wrap: wrap">
+					<a
+						class="btn ghost"
+						href="https://tickets.enercon.mx/"
+						target="_blank"
+						rel="noopener"
+						>Centro de soporte</a
+					>
+					<a class="btn ghost" href="mailto:soporte@enercon.mx"
+						>soporte@enercon.mx</a
+					>
+					<a class="btn ghost" href="tel:+524441689014">(444) 168 9014</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- GSAP -->
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+		<script>
+			// Mobile menu
+			const toggle = document.querySelector(".mobile-toggle");
+			toggle?.addEventListener("click", () => {
+				const nav = document.querySelector(".menu");
+				nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+				toggle.setAttribute("aria-expanded", nav.style.display === "flex");
+			});
+
+			// Year
+			document.getElementById("year").textContent = new Date().getFullYear();
+
+			// Counters
+			function animateNumber(el, target, suffix = "", duration = 1.2) {
+				const obj = { val: 0 };
+				gsap.to(obj, {
+					val: target,
+					duration,
+					ease: "power2.out",
+					onUpdate: () => {
+						el.textContent = obj.val.toFixed(target % 1 ? 1 : 0) + suffix;
+					},
+				});
+			}
+			animateNumber(document.getElementById("integraciones"), 20, "+");
+			animateNumber(document.getElementById("clientes"), 300, "+");
+
+			// GSAP Intro
+			gsap.from("header", {
+				y: -60,
+				opacity: 0,
+				duration: 0.6,
+				ease: "power2.out",
+			});
+			gsap.from(".hero h1", {
+				y: 30,
+				opacity: 0,
+				duration: 0.8,
+				ease: "power2.out",
+				delay: 0.1,
+			});
+			gsap.from(".lead", {
+				y: 24,
+				opacity: 0,
+				duration: 0.8,
+				ease: "power2.out",
+				delay: 0.2,
+			});
+			gsap.from(".cta .btn", {
+				y: 20,
+				opacity: 0,
+				duration: 0.6,
+				ease: "power2.out",
+				delay: 0.28,
+				stagger: 0.05,
+			});
+
+			// Scroll reveals
+			gsap.registerPlugin(ScrollTrigger);
+			gsap.utils.toArray("section").forEach((sec) => {
+				const cards = sec.querySelectorAll(".card");
+				if (cards.length) {
+					gsap.from(cards, {
+						y: 30,
+						opacity: 0,
+						duration: 0.6,
+						stagger: 0.08,
+						ease: "power2.out",
+						scrollTrigger: { trigger: sec, start: "top 75%" },
+					});
+				}
+			});
+
+			// Reduce motion respect
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				gsap.globalTimeline.timeScale(0.001);
+			}
+
+			// Tiny toast (demo)
+			function demoToast() {
+				const t = document.createElement("div");
+				t.textContent = "¡Gracias! Te contactaremos muy pronto.";
+				Object.assign(t.style, {
+					position: "fixed",
+					inset: "auto 16px 16px auto",
+					background: "#11162a",
+					color: "#e6e9f2",
+					padding: "12px 14px",
+					border: "1px solid rgba(255,255,255,.12)",
+					borderRadius: "12px",
+					boxShadow: "var(--shadow)",
+					zIndex: 9999,
+				});
+				document.body.appendChild(t);
+				setTimeout(() => t.remove(), 3500);
+			}
+		</script>
+
+		<!-- JSON-LD -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "ENERCON",
+				"url": "https://www.enercon.mx/",
+				"logo": "https://www.enercon.mx/favicon.ico",
+				"sameAs": [
+					"https://play.google.com/store/apps/details?id=com.enercon",
+					"https://tickets.enercon.mx/"
+				],
+				"contactPoint": [
+					{
+						"@type": "ContactPoint",
+						"telephone": "+52-444-168-9014",
+						"contactType": "customer support",
+						"areaServed": "MX",
+						"availableLanguage": ["es-MX"]
+					}
+				]
+			}
+		</script>
+	</body>
+</html>
