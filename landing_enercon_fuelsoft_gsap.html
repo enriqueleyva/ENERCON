@@ -17,10 +17,10 @@
 		<style>
 			:root {
 				/* === Paleta ENERCON / FUELSOFT ===
-       * Reemplaza estos valores con los datos exactos del PDF de colores.
-       */
-				--brand-primary: #0c2340; /* Azul corporativo (sugerido) */
-				--brand-accent: #ff6a00; /* Naranja de acento (sugerido) */
+			   * Reemplaza estos valores con los datos exactos del PDF de colores.
+			   */
+				--brand-primary: #2a479c; /* Azul corporativo (sugerido) */
+				--brand-accent: #44b649; /* Naranja de acento (sugerido) */
 				--brand-ink: #0f172a; /* Texto principal */
 				--brand-muted: #64748b; /* Texto secundario */
 				--brand-surface: #ffffff; /* Fondo tarjetas */
@@ -360,10 +360,37 @@
 				height: 160px;
 				background: radial-gradient(
 					40% 40% at 50% 50%,
-					rgba(255, 106, 0, 0.24) 0%,
-					rgba(255, 106, 0, 0) 80%
+					rgba(68, 182, 73, 0.24) 0%,
+					rgba(42, 71, 156, 0) 80%
 				);
 				pointer-events: none;
+			}
+
+			/* ======= HISTORY / TIMELINE ======= */
+			.timeline {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: clamp(16px, 2vw, 22px);
+			}
+			.milestone {
+				position: relative;
+				padding-left: 18px;
+			}
+			.milestone::before {
+				content: "";
+				position: absolute;
+				left: 2px;
+				top: 0.4rem;
+				width: 8px;
+				height: 8px;
+				border-radius: 999px;
+				background: var(--brand-accent);
+				box-shadow: 0 0 0 6px rgba(255, 106, 0, 0.12);
+			}
+			.milestone small {
+				color: var(--brand-muted);
+				font-weight: 700;
+				letter-spacing: 0.3px;
 			}
 
 			/* ======= COMPLIANCE ======= */
@@ -445,6 +472,21 @@
 				.col-6 {
 					grid-column: span 12;
 				}
+				.timeline {
+					grid-template-columns: 1fr;
+				}
+			}
+			.cta__box {
+				grid-template-columns: 1fr;
+			}
+			.stats {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			.col-4 {
+				grid-column: span 6;
+			}
+			.col-6 {
+				grid-column: span 12;
 			}
 			@media (max-width: 620px) {
 				.stats {
@@ -461,20 +503,19 @@
 		<header class="nav">
 			<div class="container nav__wrap">
 				<a href="#" class="brand">
-					<!-- <span class="brand__logo" aria-hidden="true"></span> -->
 					<img
 						src="img/logo.png"
 						alt="ENERCON · FUELSOFT"
 						class="brand__img"
-						width="160"
-						height="46"
+						width="180"
+						height="60"
 						decoding="async"
 						fetchpriority="high"
 					/>
 				</a>
-
 				<nav class="nav__actions">
 					<a href="#features" class="btn btn-ghost">Características</a>
+					<a href="#historia" class="btn btn-ghost">Historia</a>
 					<a href="#contacto" class="btn btn-primary">Solicitar demo</a>
 				</nav>
 			</div>
@@ -713,6 +754,72 @@
 			</div>
 		</section>
 
+		<!-- =============== HISTORIA =============== -->
+		<section id="historia">
+			<div class="container">
+				<div class="section__head">
+					<div>
+						<h2 class="section__title">Nuestra historia</h2>
+						<p class="section__lead">
+							Más de 20 años impulsando estaciones de servicio: de los controles
+							volumétricos a la automatización integral con FUELSOFT.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline">
+					<article class="card reveal">
+						<span class="chip">Origen</span>
+						<h3>Experiencia que comenzó en piso</h3>
+						<p class="milestone">
+							<small>Especialidad</small><br />Controles volumétricos,
+							proveeduría, construcción y mantenimiento de E.S.
+						</p>
+						<p class="milestone">
+							<small>Aprendizaje</small><br />Conocimiento operativo y normativo
+							del sector para construir soluciones confiables.
+						</p>
+					</article>
+
+					<article class="card reveal">
+						<span class="chip">Evolución</span>
+						<h3>De la ingeniería al software</h3>
+						<p class="milestone">
+							<small>Soluciones integrales</small><br />Desarrollo de
+							aplicaciones y plataformas con altos estándares de seguridad e
+							ingeniería de software.
+						</p>
+						<p class="milestone">
+							<small>Enfoque en valor</small><br />Automatizar procesos críticos
+							para reducir errores y acelerar la operación.
+						</p>
+					</article>
+
+					<article class="card reveal col-12">
+						<span class="chip">Actualidad</span>
+						<h3>Automatización a escala con FUELSOFT</h3>
+						<p class="milestone">
+							<small>Despliegue</small><br />Más de <b>1,000</b> TPV operando en
+							poco más de <b>130</b> estaciones a nivel nacional.
+						</p>
+						<p class="milestone">
+							<small>Clientes</small><br />Grupo Lodemo (CV Alvic), Grupo
+							Enerkom (CV Atio) y Grupo Gasolinero Gaspeed (CV Fuelsoft).
+						</p>
+						<p class="milestone">
+							<small>Monederos</small><br />Implementaciones para GASOMATIC,
+							YENA!!, ENERKARD, TANQUE LLENO, <b>POWERGAS</b> y <b>TOKA</b>.
+						</p>
+						<p class="milestone">
+							<small>Operación</small><br />Automatización de piso para
+							gasolinas y GLV, con cobro bancario, facturación 4.0 y
+							cumplimiento Anexo 30.
+						</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
 		<!-- =============== FLOW =============== -->
 		<section>
 			<div class="container">
@@ -776,7 +883,7 @@
 					</div>
 					<div>
 						<div class="card" style="background: #fff">
-							<h3 style="margin: 0.2rem 0 0.5rem; color: #0c2340">
+							<h3 style="margin: 0.2rem 0 0.5rem; color: #2a479c">
 								Solicita información
 							</h3>
 							<p style="margin-top: 0; color: var(--brand-muted)">
@@ -855,7 +962,7 @@
 
 		<footer>
 			<div class="container foot">
-				<p>© <span id="year"></span> ENERCON. Todos los derechos reservados.</p>
+				<p>© <span id="year"></span> ENERCON Todos los derechos reservados.</p>
 				<!-- <p>Hecho con FUELSOFT · Automatización de Estaciones de Servicio</p> -->
 			</div>
 		</footer>
