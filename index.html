@@ -8,6 +8,7 @@
 			name="description"
 			content="Landing page moderna para FUELSOFT: automatización de estaciones de servicio con TPV, web, monedero electrónico, facturación 4.0 y cumplimiento Anexo 30."
 		/>
+		<link rel="shortcut icon" href="img/favicon.png" type="image/png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -17,6 +18,8 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
+		<div class="orbit orbit--1"></div>
+		<div class="orbit orbit--2"></div>
 		<!-- =============== NAV =============== -->
 		<header class="nav">
 			<div class="container nav__wrap">
@@ -40,9 +43,8 @@
 		</header>
 
 		<!-- =============== HERO =============== -->
+
 		<section class="hero">
-			<div class="orbit orbit--1"></div>
-			<div class="orbit orbit--2"></div>
 			<div class="container hero__grid">
 				<div>
 					<span class="eyebrow">Automatización integral</span>
@@ -67,23 +69,31 @@
 					<div class="hero__logos">
 						<div class="logo-grid">
 							<div class="logo-tile reveal-up">
-								<img
-									src="img/fuelsoft.png"
-									alt="FuelSoft — Software de automatización"
-									width="520"
-									height="292"
-								/>
+								<a href="https://fuelsoft.mx/" target="_blank" rel="noopener">
+									<img
+										src="img/fuelsoft.png"
+										alt="FuelSoft — Software de automatización"
+										width="520"
+										height="292"
+									/>
+								</a>
 							</div>
 							<div class="logo-tile reveal-up">
-								<img
-									src="img/enerpay.png"
-									alt="EnerPay — Monedero y pagos"
-									width="520"
-									height="281"
-								/>
+								<a
+									href="https://enerpay.enercon.mx/"
+									target="_blank"
+									rel="noopener"
+								>
+									<img
+										src="img/enerpay.png"
+										alt="EnerPay — Monedero y pagos"
+										width="520"
+										height="281"
+									/>
+								</a>
 							</div>
 						</div>
-						<p class="logo-caption">Suite de software principal</p>
+						<!-- <p class="logo-caption">Suite de software principal</p> -->
 					</div>
 				</div>
 			</div>
@@ -124,7 +134,8 @@
 				</div>
 
 				<div class="grid">
-					<article class="card col-6 reveal">
+					<!-- TPV -->
+					<article class="card card--media col-6 reveal">
 						<span class="chip">FUELSOFT TPV</span>
 						<h3>Opera desde la palma de tu mano</h3>
 						<p>
@@ -132,10 +143,20 @@
 							AMEX), <b>split de pagos</b>, encuestas y promociones, y
 							<b>facturación por despacho</b> o al finalizar la carga.
 						</p>
-						<div class="card__accent" aria-hidden="true"></div>
+
+						<!-- Imagen sugerida: captura del TPV en acción -->
+						<div class="card__media">
+							<img
+								src="img/galeria/mobile.webp"
+								alt="TPV FUELSOFT: cobro bancario y facturación desde el móvil"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
 					</article>
 
-					<article class="card col-6 reveal">
+					<!-- WEB -->
+					<article class="card card--media col-6 reveal">
 						<span class="chip">FUELSOFT WEB</span>
 						<h3>Administra tu E.S. desde donde estés</h3>
 						<p>
@@ -143,10 +164,20 @@
 							electrónico. Panel de reportes para una toma de decisiones
 							informada.
 						</p>
-						<div class="card__accent" aria-hidden="true"></div>
+
+						<!-- Imagen sugerida: dashboard web (gráficas, tablas) -->
+						<div class="card__media">
+							<img
+								src="img/galeria/administra.webp"
+								alt="Panel web FUELSOFT con reportes e inventarios"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
 					</article>
 
-					<article class="card col-4 reveal">
+					<!-- MONEDERO -->
+					<article class="card card--media col-4 reveal">
 						<span class="chip">Monedero electrónico</span>
 						<h3>Fideliza y acelera cobros</h3>
 						<p>
@@ -154,27 +185,50 @@
 							para administradores y clientes. Integración con <b>PowerGas</b> y
 							<b>Toka</b>.
 						</p>
-						<div class="card__accent" aria-hidden="true"></div>
+						<div class="card__media">
+							<img
+								src="img/galeria/monedero1.webp"
+								alt="Monedero electrónico: lector y saldo del cliente"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
 					</article>
 
-					<article class="card col-4 reveal">
+					<!-- CFDI -->
+					<article class="card card--media col-4 reveal">
 						<span class="chip">Facturación 4.0</span>
 						<h3>CFDI desde TPV o automático</h3>
 						<p>
 							Portal web para tus clientes (con o sin registro) y
 							<b>CFDI global</b> por período.
 						</p>
-						<div class="card__accent" aria-hidden="true"></div>
+						<div class="card__media">
+							<img
+								src="img/galeria/timbrado.webp"
+								alt="Emisión de CFDI 4.0 y portal de facturación"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
 					</article>
 
-					<article class="card col-4 reveal">
+					<!-- CUMPLIMIENTO -->
+					<article class="card card--media col-6 reveal">
 						<span class="chip">Cumplimiento</span>
 						<h3>Anexo 30 y seguridad</h3>
 						<p>
 							Generación de reportes diarios y mensuales; infraestructura y
 							seguridad integradas para cumplir con la normatividad vigente.
 						</p>
-						<div class="card__accent" aria-hidden="true"></div>
+						<div class="card__media">
+							<img
+								src="img/galeria/cumplimiento.webp"
+								alt="Reportes Anexo 30 y auditoría"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
 					</article>
 				</div>
 			</div>
@@ -289,6 +343,37 @@
 					</article>
 				</div>
 			</div>
+			<div class="stepper">
+				<div class="stepper__track"></div>
+				<div class="stepper__progress"></div>
+
+				<article class="step">
+					<div class="step__num">1</div>
+					<h3>Despacho y cobro</h3>
+					<p>
+						TPV móvil gestiona el despacho, realiza cobro bancario y emite la
+						factura.
+					</p>
+				</article>
+
+				<article class="step">
+					<div class="step__num">2</div>
+					<h3>Inventario y cuentas</h3>
+					<p>
+						Control de periféricos, inventarios y cuentas por cobrar/prepago en
+						la web.
+					</p>
+				</article>
+
+				<article class="step">
+					<div class="step__num">3</div>
+					<h3>Reportes y auditoría</h3>
+					<p>
+						Reportes Anexo 30 y trazabilidad para auditorías técnicas y
+						fiscales.
+					</p>
+				</article>
+			</div>
 		</section>
 
 		<!-- =============== CTA =============== -->
@@ -397,5 +482,28 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 		<script src="js/main.js"></script>
+		<script>
+			// Progreso de la barra al hacer scroll
+			const progressEl = document.querySelector(".stepper__progress");
+			if (progressEl) {
+				ScrollTrigger.create({
+					trigger: ".stepper",
+					start: "top 80%",
+					end: "bottom 20%",
+					onUpdate: (self) =>
+						(progressEl.style.width = self.progress * 100 + "%"),
+				});
+			}
+			// Entrada de cada paso
+			gsap.utils.toArray(".step").forEach((el, i) => {
+				gsap.from(el, {
+					y: 18,
+					opacity: 0,
+					duration: 0.55,
+					delay: i * 0.05,
+					scrollTrigger: { trigger: el, start: "top 85%" },
+				});
+			});
+		</script>
 	</body>
 </html>
