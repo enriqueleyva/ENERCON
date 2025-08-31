@@ -40,12 +40,26 @@ body {
         Helvetica, Arial, sans-serif;
     color: var(--brand-ink);
     /* La línea de "background" se elimina de aquí */
-    overflow-x: hidden;
+
+}
+
+.orbits {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 .container {
