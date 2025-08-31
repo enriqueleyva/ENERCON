@@ -663,86 +663,47 @@ footer {
     }
 }
 
-/* Stepper */
-.stepper {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    padding-top: 28px;
-}
-
-.stepper__track,
-.stepper__progress {
-    position: absolute;
-    left: clamp(16px, 2vw, 22px);
-    right: clamp(16px, 2vw, 22px);
-    height: 6px;
-    top: 8px;
-    border-radius: 999px;
-}
-
-.stepper__track {
-    background: var(--brand-line);
-}
-
-.stepper__progress {
-    background: var(--brand-accent);
-    width: 0;
-    box-shadow: 0 6px 16px rgba(255, 106, 0, .25);
-}
-
-.step {
-    background: #fff;
+/* ======= FLOW DIAGRAM (SVG) ======= */
+.flow {
+    background: linear-gradient(180deg, #fff 0%, #F7FAFF 100%);
     border: 1px solid var(--brand-line);
     border-radius: var(--radius-xl);
-    padding: 18px 18px 20px;
+    padding: 12px;
     box-shadow: var(--shadow-sm);
-    position: relative;
 }
 
-.step h3 {
-    margin: .3rem 0 .35rem;
+.flow__svg {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.step p {
-    margin: 0;
-    color: var(--brand-muted);
+.flow-title {
+    font: 700 12px/1 'Inter', system-ui;
+    fill: var(--brand-primary);
 }
 
-/* Número “pin” que se asienta en la barra */
-.step__num {
-    position: absolute;
-    top: -14px;
-    left: 18px;
-    width: 36px;
-    height: 36px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-    color: #fff;
-    background: var(--brand-primary);
-    box-shadow: 0 8px 20px rgba(12, 35, 64, .20);
+.flow-h3 {
+    font: 800 16px/1.2 'Inter', system-ui;
+    fill: var(--brand-ink);
 }
 
-/* Responsive */
+.flow-p {
+    font: 500 12px/1.2 'Inter', system-ui;
+    fill: var(--brand-muted);
+}
+
+.flow-note {
+    font: 500 13px/1.4 'Inter', system-ui;
+    fill: var(--brand-muted);
+}
+
 @media (max-width: 980px) {
-    .stepper {
-        grid-template-columns: 1fr;
+    .flow {
+        padding: 8px;
     }
 
-    .stepper__track,
-    .stepper__progress {
-        left: 0;
-        right: 0;
-        top: 0;
-        height: 0;
-    }
-
-    /* ocultar barra */
-    .step__num {
-        position: static;
-        margin-bottom: 8px;
+    .flow__svg {
+        /* versión compacta móvil: escala el viewBox automáticamente */
     }
 }

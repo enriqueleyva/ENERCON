@@ -72,3 +72,20 @@ document.addEventListener("keydown", (e) => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}
 });
+// Dibujo progresivo de las flechas del flujo
+gsap.utils.toArray(".flow-line").forEach((path) => {
+	const length = path.getTotalLength();
+	gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+	gsap.to(path, {
+		strokeDashoffset: 0,
+		duration: 0.9,
+		ease: "power2.out",
+		scrollTrigger: { trigger: ".flow", start: "top 75%" },
+	});
+});
+
+document.addEventListener("keydown", (e) => {
+	if ((e.key === "g" || e.key === "G") && e.altKey) {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}
+});

@@ -235,69 +235,228 @@
 		</section>
 
 		<!-- =============== HISTORIA =============== -->
-		<section id="historia">
+		<section id="historia" class="history-zz">
 			<div class="container">
 				<div class="section__head">
 					<div>
 						<h2 class="section__title">Nuestra historia</h2>
 						<p class="section__lead">
-							Más de 20 años impulsando estaciones de servicio: de los controles
+							Más de 20 años impulsando estaciones: de los controles
 							volumétricos a la automatización integral con FUELSOFT.
 						</p>
 					</div>
 				</div>
 
-				<div class="timeline">
-					<article class="card reveal">
-						<span class="chip">Origen</span>
-						<h3>Experiencia que comenzó en piso</h3>
-						<p class="milestone">
-							<small>Especialidad</small><br />Controles volumétricos,
-							proveeduría, construcción y mantenimiento de E.S.
-						</p>
-						<p class="milestone">
-							<small>Aprendizaje</small><br />Conocimiento operativo y normativo
-							del sector para construir soluciones confiables.
-						</p>
+				<div class="zz">
+					<!-- ORIGEN -->
+					<article class="zz__item">
+						<figure class="zz__media">
+							<img
+								src="img/galeria/historia1.png"
+								alt="Equipo técnico en piso de estación realizando mantenimiento"
+							/>
+							<span class="zz__year">Origen</span>
+						</figure>
+						<div class="zz__content">
+							<span class="chip">ORIGEN</span>
+							<h3>Experiencia que comenzó en piso</h3>
+							<ul class="zz__list">
+								<li>
+									<b>Especialidad</b> · Controles volumétricos, proveeduría,
+									construcción y mantenimiento.
+								</li>
+								<li>
+									<b>Aprendizaje</b> · Conocimiento operativo y normativo del
+									sector para soluciones confiables.
+								</li>
+							</ul>
+						</div>
 					</article>
 
-					<article class="card reveal">
-						<span class="chip">Evolución</span>
-						<h3>De la ingeniería al software</h3>
-						<p class="milestone">
-							<small>Soluciones integrales</small><br />Desarrollo de
-							aplicaciones y plataformas con altos estándares de seguridad e
-							ingeniería de software.
-						</p>
-						<p class="milestone">
-							<small>Enfoque en valor</small><br />Automatizar procesos críticos
-							para reducir errores y acelerar la operación.
-						</p>
+					<!-- EVOLUCIÓN -->
+					<article class="zz__item">
+						<figure class="zz__media">
+							<img
+								src="img/galeria/historia2.png"
+								alt="Interfaces de software y diagramas de arquitectura"
+							/>
+							<span class="zz__year">Evolución</span>
+						</figure>
+						<div class="zz__content">
+							<span class="chip">EVOLUCIÓN</span>
+							<h3>De la ingeniería al software</h3>
+							<ul class="zz__list">
+								<li>
+									<b>Soluciones integrales</b> · Aplicaciones y plataformas con
+									altos estándares de seguridad.
+								</li>
+								<li>
+									<b>Enfoque en valor</b> · Automatizar procesos críticos para
+									reducir errores y tiempos.
+								</li>
+							</ul>
+						</div>
 					</article>
 
-					<article class="card reveal col-12">
-						<span class="chip">Actualidad</span>
-						<h3>Automatización a escala con FUELSOFT</h3>
-						<p class="milestone">
-							<small>Despliegue</small><br />Más de <b>1,000</b> TPV operando en
-							poco más de <b>130</b> estaciones a nivel nacional.
-						</p>
-						<p class="milestone">
-							<small>Clientes</small><br />Grupo Lodemo (CV Alvic), Grupo
-							Enerkom (CV Atio) y Grupo Gasolinero Gaspeed (CV Fuelsoft).
-						</p>
-						<p class="milestone">
-							<small>Monederos</small><br />Implementaciones para GASOMATIC,
-							YENA!!, ENERKARD, TANQUE LLENO, <b>POWERGAS</b> y <b>TOKA</b>.
-						</p>
-						<p class="milestone">
-							<small>Operación</small><br />Automatización de piso para
-							gasolinas y GLV, con cobro bancario, facturación 4.0 y
-							cumplimiento Anexo 30.
-						</p>
+					<!-- ACTUALIDAD -->
+					<article class="zz__item">
+						<figure class="zz__media">
+							<img
+								src="img/galeria/historia3.png"
+								alt="TPV y panel web operando en estación"
+							/>
+							<span class="zz__year">Actualidad</span>
+						</figure>
+						<div class="zz__content">
+							<span class="chip">ACTUALIDAD</span>
+							<h3>Automatización con FUELSOFT</h3>
+							<ul class="zz__list">
+								<li>
+									<b>Despliegue</b> · 1,000+ TPV en 130+ estaciones a nivel
+									nacional.
+								</li>
+								<li><b>Clientes</b> · Lodemo, Enerkom, Gaspeed.</li>
+								<li>
+									<b>Monederos</b> · GASOMATIC, YENA!!, ENERKARD, TANQUE LLENO,
+									POWERGAS, TOKA.
+								</li>
+								<li>
+									<b>Operación</b> · Gasolinas y GLV; cobro bancario, CFDI 4.0 y
+									Anexo 30.
+								</li>
+							</ul>
+						</div>
 					</article>
 				</div>
 			</div>
+
+			<style>
+				/* ======= TIMELINE ZIG-ZAG ======= */
+				.history-zz {
+					padding: clamp(52px, 8vw, 96px) 0;
+				}
+				.zz {
+					position: relative;
+					display: grid;
+					gap: clamp(18px, 2.4vw, 28px);
+				}
+				.zz::before {
+					content: "";
+					position: absolute;
+					left: 50%;
+					top: 0;
+					bottom: 0;
+					width: 2px;
+					transform: translateX(-50%);
+					background: linear-gradient(
+						180deg,
+						var(--brand-line),
+						rgba(0, 0, 0, 0)
+					);
+				}
+
+				.zz__item {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					align-items: center;
+					gap: clamp(16px, 2vw, 24px);
+					position: relative;
+				}
+				/* alternar columnas */
+				.zz__item:nth-child(even) .zz__media {
+					order: 2;
+				}
+				.zz__item:nth-child(even) .zz__content {
+					order: 1;
+				}
+
+				/* conector redondo sobre la línea central */
+				.zz__item::after {
+					content: "";
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					width: 14px;
+					height: 14px;
+					border-radius: 999px;
+					background: var(--brand-accent);
+					box-shadow: 0 8px 20px rgba(255, 106, 0, 0.35);
+				}
+
+				/* imagen */
+				.zz__media {
+					position: relative;
+					background: #fff;
+					border: 1px solid var(--brand-line);
+					border-radius: var(--radius-2xl);
+					overflow: hidden;
+					box-shadow: var(--shadow-sm);
+				}
+				.zz__media img {
+					display: block;
+					width: 100%;
+					height: auto;
+					object-fit: cover;
+				}
+				.zz__year {
+					position: absolute;
+					left: 14px;
+					top: 14px;
+					background: #fff;
+					color: var(--brand-primary);
+					border: 1px solid var(--brand-line);
+					border-radius: 999px;
+					padding: 0.35rem 0.6rem;
+					font-weight: 800;
+					font-size: 0.8rem;
+				}
+
+				/* texto */
+				.zz__content {
+					background: #fff;
+					border: 1px solid var(--brand-line);
+					border-radius: var(--radius-xl);
+					padding: 18px 18px 16px;
+					box-shadow: var(--shadow-sm);
+				}
+				.zz__content h3 {
+					margin: 0.2rem 0 0.5rem;
+				}
+				.zz__list {
+					margin: 0;
+					padding-left: 0;
+					list-style: none;
+					display: grid;
+					gap: 10px;
+				}
+				.zz__list li {
+					color: var(--brand-muted);
+				}
+				.zz__list li::before {
+					content: "";
+					display: inline-block;
+					width: 10px;
+					height: 10px;
+					border-radius: 999px;
+					background: radial-gradient(circle at 30% 30%, #8df2b4, #2ecc71);
+					margin-right: 8px;
+					transform: translateY(1px);
+				}
+
+				/* responsive */
+				@media (max-width: 980px) {
+					.zz::before {
+						display: none;
+					}
+					.zz__item {
+						grid-template-columns: 1fr;
+					}
+					.zz__item::after {
+						display: none;
+					}
+				}
+			</style>
 		</section>
 
 		<!-- =============== FLOW =============== -->
@@ -313,66 +472,118 @@
 					</div>
 				</div>
 
-				<div class="grid">
-					<article class="card col-4 reveal">
-						<span class="chip">1 · Piso de venta</span>
-						<h3>Despacho y cobro</h3>
-						<p>
-							TPV móvil gestiona el despacho, realiza cobro bancario y emite la
-							factura.
-						</p>
-						<div class="card__accent"></div>
-					</article>
-					<article class="card col-4 reveal">
-						<span class="chip">2 · Administración</span>
-						<h3>Inventario y cuentas</h3>
-						<p>
-							Control de periféricos, inventarios y cuentas por cobrar/prepago
-							en la web.
-						</p>
-						<div class="card__accent"></div>
-					</article>
-					<article class="card col-4 reveal">
-						<span class="chip">3 · Cumplimiento</span>
-						<h3>Reportes y auditoría</h3>
-						<p>
-							Reportes Anexo 30 y trazabilidad para auditorías técnicas y
-							fiscales.
-						</p>
-						<div class="card__accent"></div>
-					</article>
+				<div class="story" id="story-flujo">
+					<div class="story__visual">
+						<picture>
+							<source srcset="img/galeria/flow.png" type="image/png" />
+							<!-- <source srcset="img/galeria/flow.webp" type="image/webp" /> -->
+							<img
+								src="img/galeria/flow.png"
+								alt="Flujo general"
+								class="story__img"
+								loading="lazy"
+								decoding="async"
+								sizes="(max-width: 980px) 100vw, 48vw"
+							/>
+						</picture>
+
+						<div class="state state-1 is-on"></div>
+						<div class="state state-2"></div>
+						<div class="state state-3"></div>
+					</div>
+
+					<div class="story__steps">
+						<article class="step">
+							<h3>1 · Despacho y cobro</h3>
+							<p>TPV móvil, cobro bancario y factura.</p>
+						</article>
+						<article class="step">
+							<h3>2 · Administración</h3>
+							<p>
+								Inventarios y cuentas. Periféricos, inventarios y CxC/prepago.
+							</p>
+						</article>
+						<article class="step">
+							<h3>3 · Cumplimiento</h3>
+							<p>Anexo 30, CFDI y trazabilidad.</p>
+						</article>
+					</div>
 				</div>
-			</div>
-			<div class="stepper">
-				<div class="stepper__track"></div>
-				<div class="stepper__progress"></div>
+				<style>
+					.story {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 24px;
+					}
+					.story__visual {
+						position: sticky;
+						top: 90px;
+						align-self: start;
+						background: #fff;
+						border: 1px solid var(--brand-line);
+						border-radius: var(--radius-xl);
+						padding: 12px;
 
-				<article class="step">
-					<div class="step__num">1</div>
-					<h3>Despacho y cobro</h3>
-					<p>
-						TPV móvil gestiona el despacho, realiza cobro bancario y emite la
-						factura.
-					</p>
-				</article>
-
-				<article class="step">
-					<div class="step__num">2</div>
-					<h3>Inventario y cuentas</h3>
-					<p>
-						Control de periféricos, inventarios y cuentas por cobrar/prepago en
-						la web.
-					</p>
-				</article>
-
-				<article class="step">
-					<div class="step__num">3</div>
-					<h3>Reportes y auditoría</h3>
-					<p>
-						Reportes Anexo 30 y trazabilidad para auditorías técnicas y
-						fiscales.
-					</p>
-				</article>
+						display: flex; /* centra el contenido */
+						align-items: center;
+						justify-content: center;
+						aspect-ratio: 16 / 9; /* mantiene formato de la ilustración */
+						min-height: clamp(
+							240px,
+							34vw,
+							420px
+						); /* asegura altura razonable */
+					}
+					/* la imagen se contiene y se centra */
+					.story__img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain; /* NO recorta, ajusta dentro del marco */
+						object-position: center center; /* centrada */
+						display: block;
+					}
+					.story__visual .state {
+						position: absolute;
+						inset: 12px;
+						border-radius: 12px;
+						pointer-events: none;
+						opacity: 0;
+					}
+					.story__visual .state.is-on {
+						opacity: 1;
+					}
+					.story__steps {
+						display: grid;
+						gap: 16px;
+					}
+					@media (max-width: 980px) {
+						.story {
+							grid-template-columns: 1fr;
+						}
+						.story__visual {
+							position: static;
+						}
+					}
+				</style>
+				<script>
+					(function () {
+						const root = document.getElementById("story-flujo");
+						if (!root || !window.ScrollTrigger) return;
+						const states = root.querySelectorAll(".state");
+						const steps = gsap.utils.toArray("#story-flujo .step");
+						const set = (i) =>
+							states.forEach((s, k) => s.classList.toggle("is-on", i === k));
+						steps.forEach((el, i) => {
+							ScrollTrigger.create({
+								trigger: el,
+								start: "top 65%",
+								end: "bottom 35%",
+								onEnter: () => set(i),
+								onEnterBack: () => set(i),
+							});
+						});
+					})();
+				</script>
 			</div>
 		</section>
 
@@ -381,7 +592,7 @@
 			<div class="container">
 				<div class="cta__box">
 					<div>
-						<span class="badge">Anexo 30 · CFDI 4.0 · Cobro bancario</span>
+						<!-- <span class="badge">Anexo 30 · CFDI 4.0 · Cobro bancario</span> -->
 						<h3>¿Listo para automatizar tu estación?</h3>
 						<p>
 							Agendemos una demo para mostrar cómo FUELSOFT reduce tiempos de
@@ -483,25 +694,28 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 		<script src="js/main.js"></script>
 		<script>
-			// Progreso de la barra al hacer scroll
-			const progressEl = document.querySelector(".stepper__progress");
-			if (progressEl) {
-				ScrollTrigger.create({
-					trigger: ".stepper",
-					start: "top 80%",
-					end: "bottom 20%",
-					onUpdate: (self) =>
-						(progressEl.style.width = self.progress * 100 + "%"),
-				});
-			}
-			// Entrada de cada paso
-			gsap.utils.toArray(".step").forEach((el, i) => {
-				gsap.from(el, {
-					y: 18,
+			// Animaciones de entrada (zig-zag)
+			gsap.utils.toArray(".zz__item").forEach((item, i) => {
+				const media = item.querySelector(".zz__media");
+				const content = item.querySelector(".zz__content");
+				const fromX = i % 2 === 0 ? -24 : 24;
+
+				gsap.from(media, {
 					opacity: 0,
-					duration: 0.55,
-					delay: i * 0.05,
-					scrollTrigger: { trigger: el, start: "top 85%" },
+					y: 18,
+					scale: 0.96,
+					duration: 0.6,
+					ease: "power2.out",
+					scrollTrigger: { trigger: item, start: "top 80%" },
+				});
+
+				gsap.from(content, {
+					opacity: 0,
+					x: fromX,
+					y: 12,
+					duration: 0.6,
+					ease: "power2.out",
+					scrollTrigger: { trigger: item, start: "top 78%" },
 				});
 			});
 		</script>
