@@ -304,6 +304,25 @@ h1 {
             rgba(42, 71, 156, 0) 70%);
 }
 
+@media (max-width: 768px) {
+
+    .orbit.orbit--1,
+    .orbit.orbit--2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .orbit.orbit--1 {
+        right: -80px;
+        top: -40px;
+    }
+
+    .orbit.orbit--2 {
+        left: -80px;
+        bottom: -40px;
+    }
+}
+
 /* ======= HERO LOGOS ======= */
 .hero__logos {
     display: grid;
@@ -329,7 +348,7 @@ h1 {
 }
 
 .logo-tile img {
-    max-width: 260px;
+    max-width: 100%;
     width: 100%;
     height: auto;
     display: block;
@@ -652,6 +671,10 @@ footer {
 
     .logo-grid {
         grid-template-columns: 1fr;
+    }
+
+    .logo-tile {
+        padding: 12px;
     }
 }
 
