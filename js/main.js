@@ -4,6 +4,13 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // GSAP base
 gsap.registerPlugin(ScrollTrigger);
 
+const navToggle = document.querySelector(".nav__toggle");
+const navActions = document.querySelector(".nav__actions");
+if (navToggle && navActions) {
+	navToggle.addEventListener("click", () => {
+		navActions.classList.toggle("is-open");
+	});
+}
 // HERO animation
 const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 tl.from(".eyebrow", { y: 20, opacity: 0, duration: 0.5 })

@@ -34,6 +34,7 @@
 						fetchpriority="high"
 					/>
 				</a>
+				<button class="nav__toggle" aria-label="Abrir menú">☰</button>
 				<nav class="nav__actions">
 					<a href="#features" class="btn btn-ghost">Características</a>
 					<a href="#historia" class="btn btn-ghost">Historia</a>
@@ -612,66 +613,20 @@
 								Comparte tus datos y te contactamos.
 							</p>
 							<form
+								class="contact-form"
 								onsubmit="event.preventDefault(); alert('¡Gracias! Te contactaremos a la brevedad.');"
 							>
-								<div
-									style="
-										display: grid;
-										gap: 10px;
-										grid-template-columns: 1fr 1fr;
-									"
-								>
-									<input
-										required
-										placeholder="Nombre"
-										style="
-											border: 1px solid var(--brand-line);
-											border-radius: 10px;
-											padding: 12px;
-											font: inherit;
-										"
-									/>
-									<input
-										required
-										type="email"
-										placeholder="Correo"
-										style="
-											border: 1px solid var(--brand-line);
-											border-radius: 10px;
-											padding: 12px;
-											font: inherit;
-										"
-									/>
-									<input
-										placeholder="Empresa"
-										style="
-											border: 1px solid var(--brand-line);
-											border-radius: 10px;
-											padding: 12px;
-											font: inherit;
-											grid-column: 1/-1;
-										"
-									/>
+								<div class="contact-grid">
+									<input required placeholder="Nombre" />
+									<input required type="email" placeholder="Correo" />
+									<input class="full" placeholder="Empresa" />
 									<textarea
+										class="full"
 										placeholder="Mensaje"
 										rows="3"
-										style="
-											border: 1px solid var(--brand-line);
-											border-radius: 10px;
-											padding: 12px;
-											font: inherit;
-											grid-column: 1/-1;
-										"
 									></textarea>
 								</div>
-								<div
-									style="
-										display: flex;
-										gap: 10px;
-										justify-content: flex-end;
-										margin-top: 12px;
-									"
-								>
+								<div class="contact-actions">
 									<button class="btn btn-ghost" type="reset">Limpiar</button>
 									<button class="btn btn-primary" type="submit">Enviar</button>
 								</div>
