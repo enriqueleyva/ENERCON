@@ -394,6 +394,16 @@ h1 {
     box-shadow: var(--shadow-sm);
 }
 
+.kpi b::before {
+    content: "+";
+    margin-right: 4px;
+}
+
+/* .kpi b::after {
+    content: "+";
+    margin-right: 4px;
+} */
+
 .kpi b {
     font-size: clamp(1.4rem, 2.6vw, 2rem);
     display: block;

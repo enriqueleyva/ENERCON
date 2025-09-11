@@ -49,7 +49,12 @@ gsap.utils.toArray(".reveal, .reveal-up").forEach((el) => {
 
 // KPI Counters
 document.querySelectorAll("[data-counter]").forEach((el) => {
-	const end = parseInt(el.dataset.counter, 10);
+	const end = parseFloat(el.dataset.counter);
+	const decimals = 1;
+	const formatter = new Intl.NumberFormat("es-MX", {
+		notation: "compact",
+		maximumFractionDigits: decimals,
+	});
 	gsap.fromTo(
 		el,
 		{ innerText: 0 },
@@ -57,8 +62,11 @@ document.querySelectorAll("[data-counter]").forEach((el) => {
 			innerText: end,
 			duration: 1.8,
 			ease: "power1.out",
-			snap: { innerText: 1 },
+			snap: { innerText: 1 / Math.pow(10, decimals) },
 			scrollTrigger: { trigger: el, start: "top 90%" },
+			onUpdate: () => {
+				el.innerText = formatter.format(parseFloat(el.innerText));
+			},
 		}
 	);
 });
