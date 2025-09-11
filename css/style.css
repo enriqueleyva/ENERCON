@@ -479,6 +479,12 @@ section {
     font-size: 0.95rem;
 }
 
+.card li {
+    margin: 0.4rem 0 0;
+    color: var(--brand-muted);
+    font-size: 0.95rem;
+}
+
 .chip {
     display: inline-flex;
     align-items: center;
@@ -826,4 +832,12 @@ footer {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.card__list {
+    margin: 0;
+    /* ajusta según tu diseño */
+    padding-left: 1.2rem;
+    text-transform: capitalize;
+    /* sangría del listado */
 }
