@@ -104,3 +104,45 @@ document.addEventListener("keydown", (e) => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}
 });
+(function () {
+	const root = document.getElementById("story-flujo");
+	if (!root || !window.ScrollTrigger) return;
+	const states = root.querySelectorAll(".state");
+	const steps = gsap.utils.toArray("#story-flujo .step");
+	const set = (i) =>
+		states.forEach((s, k) => s.classList.toggle("is-on", i === k));
+	steps.forEach((el, i) => {
+		ScrollTrigger.create({
+			trigger: el,
+			start: "top 65%",
+			end: "bottom 35%",
+			onEnter: () => set(i),
+			onEnterBack: () => set(i),
+		});
+	});
+})();
+
+// Animaciones de entrada (zig-zag)
+gsap.utils.toArray(".zz__item").forEach((item, i) => {
+	const media = item.querySelector(".zz__media");
+	const content = item.querySelector(".zz__content");
+	const fromX = i % 2 === 0 ? -24 : 24;
+
+	gsap.from(media, {
+		opacity: 0,
+		y: 18,
+		scale: 0.96,
+		duration: 0.6,
+		ease: "power2.out",
+		scrollTrigger: { trigger: item, start: "top 80%" },
+	});
+
+	gsap.from(content, {
+		opacity: 0,
+		x: fromX,
+		y: 12,
+		duration: 0.6,
+		ease: "power2.out",
+		scrollTrigger: { trigger: item, start: "top 78%" },
+	});
+});

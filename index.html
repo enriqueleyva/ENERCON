@@ -6,7 +6,7 @@
 		<title>ENERCON · FUELSOFT — Automatización de Estaciones de Servicio</title>
 		<meta
 			name="description"
-			content="Landing page moderna para FUELSOFT: automatización de estaciones de servicio con TPV, web, monedero electrónico, facturación 4.0 y cumplimiento Anexo 30."
+			content="Opera tu estación de servicio más rápido, más eficiente y ¡haz feliz a todos tus clientes!"
 		/>
 		<link rel="shortcut icon" href="img/favicon.png" type="image/png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,7 +113,6 @@
 								</a>
 							</div>
 						</div>
-						<!-- <p class="logo-caption">Suite de software principal</p> -->
 					</div>
 				</div>
 			</div>
@@ -156,12 +155,6 @@
 					<article class="card card--media col-6 reveal">
 						<span class="chip">FUELSOFT TPV</span>
 						<h3>Opera desde la palma de tu mano</h3>
-						<!-- <p>
-							Despachos a público general, <b>cobro bancario</b> (Visa, MC,
-							AMEX), <b>split de pagos</b>, encuestas y promociones, y
-							<b>facturación por despacho</b> o al finalizar la carga.
-						</p> -->
-
 						<ul class="card__list">
 							<li>Despachos publico en general.</li>
 							<li><b>Cobro bancario </b> (VISA, MC, AMEX, extranjeras).</li>
@@ -227,12 +220,6 @@
 					<article class="card card--media col-4 reveal">
 						<span class="chip">Monedero electrónico</span>
 						<h3>Fideliza y acelera cobros</h3>
-						<!-- <p>
-							Multiestación, lectores (banda, código de barras, NFC), acceso web
-							para administradores y clientes. Integración con <b>PowerGas</b> y
-							<b>Toka</b>.
-						</p> -->
-
 						<ul class="card__list">
 							<li>
 								<b> Monedero electrónico de servicio cerrado.</b>Atiende multi
@@ -274,10 +261,6 @@
 					<article class="card card--media col-4 reveal">
 						<span class="chip">Facturación 4.0</span>
 						<h3>CFDI desde TPV o automático</h3>
-						<!-- <p>
-							Portal web para tus clientes (con o sin registro) y
-							<b>CFDI global</b> por período.
-						</p> -->
 						<ul class="card__list">
 							<li>
 								<b>Portal Web para facturación de tus clientes:</b>Un solo
@@ -306,7 +289,6 @@
 					<article class="card card--media col-6 reveal">
 						<span class="chip">Cumplimiento</span>
 						<h3>Anexo 30 y seguridad</h3>
-						<!-- 	 -->
 						<ul class="card__list">
 							<li>
 								Generación de reportes diarios y mensuales; infraestructura y
@@ -421,134 +403,6 @@
 					</article>
 				</div>
 			</div>
-
-			<style>
-				/* ======= TIMELINE ZIG-ZAG ======= */
-				.history-zz {
-					padding: clamp(52px, 8vw, 96px) 0;
-				}
-				.zz {
-					position: relative;
-					display: grid;
-					gap: clamp(18px, 2.4vw, 28px);
-				}
-				.zz::before {
-					content: "";
-					position: absolute;
-					left: 50%;
-					top: 0;
-					bottom: 0;
-					width: 2px;
-					transform: translateX(-50%);
-					background: linear-gradient(
-						180deg,
-						var(--brand-line),
-						rgba(0, 0, 0, 0)
-					);
-				}
-
-				.zz__item {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					align-items: center;
-					gap: clamp(16px, 2vw, 24px);
-					position: relative;
-				}
-				/* alternar columnas */
-				.zz__item:nth-child(even) .zz__media {
-					order: 2;
-				}
-				.zz__item:nth-child(even) .zz__content {
-					order: 1;
-				}
-
-				/* conector redondo sobre la línea central */
-				.zz__item::after {
-					content: "";
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					transform: translate(-50%, -50%);
-					width: 14px;
-					height: 14px;
-					border-radius: 999px;
-					background: var(--brand-accent);
-					box-shadow: 0 8px 20px rgba(255, 106, 0, 0.35);
-				}
-
-				/* imagen */
-				.zz__media {
-					position: relative;
-					background: #fff;
-					border: 1px solid var(--brand-line);
-					border-radius: var(--radius-2xl);
-					overflow: hidden;
-					box-shadow: var(--shadow-sm);
-				}
-				.zz__media img {
-					display: block;
-					width: 100%;
-					height: auto;
-					object-fit: cover;
-				}
-				.zz__year {
-					position: absolute;
-					left: 14px;
-					top: 14px;
-					background: #fff;
-					color: var(--brand-primary);
-					border: 1px solid var(--brand-line);
-					border-radius: 999px;
-					padding: 0.35rem 0.6rem;
-					font-weight: 800;
-					font-size: 0.8rem;
-				}
-
-				/* texto */
-				.zz__content {
-					background: #fff;
-					border: 1px solid var(--brand-line);
-					border-radius: var(--radius-xl);
-					padding: 18px 18px 16px;
-					box-shadow: var(--shadow-sm);
-				}
-				.zz__content h3 {
-					margin: 0.2rem 0 0.5rem;
-				}
-				.zz__list {
-					margin: 0;
-					padding-left: 0;
-					list-style: none;
-					display: grid;
-					gap: 10px;
-				}
-				.zz__list li {
-					color: var(--brand-muted);
-				}
-				.zz__list li::before {
-					content: "";
-					display: inline-block;
-					width: 10px;
-					height: 10px;
-					border-radius: 999px;
-					background: radial-gradient(circle at 30% 30%, #8df2b4, #2ecc71);
-					margin-right: 8px;
-					transform: translateY(1px);
-				}
-
-				/* responsive */
-				@media (max-width: 980px) {
-					.zz::before {
-						display: none;
-					}
-					.zz__item {
-						grid-template-columns: 1fr;
-					}
-					.zz__item::after {
-						display: none;
-					}
-				}
-			</style>
 		</section>
 
 		<!-- =============== FLOW =============== -->
@@ -608,81 +462,6 @@
 						</article>
 					</div>
 				</div>
-				<style>
-					.story {
-						display: grid;
-						grid-template-columns: 1fr 1fr;
-						gap: 24px;
-					}
-					.story__visual {
-						position: sticky;
-						top: 90px;
-						align-self: start;
-						background: #fff;
-						border: 1px solid var(--brand-line);
-						border-radius: var(--radius-xl);
-						padding: 12px;
-
-						display: flex; /* centra el contenido */
-						align-items: center;
-						justify-content: center;
-						aspect-ratio: 16 / 9; /* mantiene formato de la ilustración */
-						min-height: clamp(
-							240px,
-							34vw,
-							420px
-						); /* asegura altura razonable */
-					}
-					/* la imagen se contiene y se centra */
-					.story__img {
-						width: 100%;
-						height: 100%;
-						object-fit: contain; /* NO recorta, ajusta dentro del marco */
-						object-position: center center; /* centrada */
-						display: block;
-					}
-					.story__visual .state {
-						position: absolute;
-						inset: 12px;
-						border-radius: 12px;
-						pointer-events: none;
-						opacity: 0;
-					}
-					.story__visual .state.is-on {
-						opacity: 1;
-					}
-					.story__steps {
-						display: grid;
-						gap: 16px;
-					}
-					@media (max-width: 980px) {
-						.story {
-							grid-template-columns: 1fr;
-						}
-						.story__visual {
-							position: static;
-						}
-					}
-				</style>
-				<script>
-					(function () {
-						const root = document.getElementById("story-flujo");
-						if (!root || !window.ScrollTrigger) return;
-						const states = root.querySelectorAll(".state");
-						const steps = gsap.utils.toArray("#story-flujo .step");
-						const set = (i) =>
-							states.forEach((s, k) => s.classList.toggle("is-on", i === k));
-						steps.forEach((el, i) => {
-							ScrollTrigger.create({
-								trigger: el,
-								start: "top 65%",
-								end: "bottom 35%",
-								onEnter: () => set(i),
-								onEnterBack: () => set(i),
-							});
-						});
-					})();
-				</script>
 			</div>
 		</section>
 
@@ -691,7 +470,6 @@
 			<div class="container">
 				<div class="cta__box">
 					<div>
-						<!-- <span class="badge">Anexo 30 · CFDI 4.0 · Cobro bancario</span> -->
 						<h3>¿Listo para automatizar tu estación?</h3>
 						<p>
 							Agendemos una demo para mostrar cómo FUELSOFT reduce tiempos de
@@ -738,7 +516,6 @@
 		<footer>
 			<div class="container foot">
 				<p>© <span id="year"></span> ENERCON Todos los derechos reservados.</p>
-				<!-- <p>Hecho con FUELSOFT · Automatización de Estaciones de Servicio</p> -->
 			</div>
 		</footer>
 
@@ -746,31 +523,5 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 		<script src="js/main.js"></script>
-		<script>
-			// Animaciones de entrada (zig-zag)
-			gsap.utils.toArray(".zz__item").forEach((item, i) => {
-				const media = item.querySelector(".zz__media");
-				const content = item.querySelector(".zz__content");
-				const fromX = i % 2 === 0 ? -24 : 24;
-
-				gsap.from(media, {
-					opacity: 0,
-					y: 18,
-					scale: 0.96,
-					duration: 0.6,
-					ease: "power2.out",
-					scrollTrigger: { trigger: item, start: "top 80%" },
-				});
-
-				gsap.from(content, {
-					opacity: 0,
-					x: fromX,
-					y: 12,
-					duration: 0.6,
-					ease: "power2.out",
-					scrollTrigger: { trigger: item, start: "top 78%" },
-				});
-			});
-		</script>
 	</body>
 </html>
